@@ -1,0 +1,4 @@
+.browser_profile/
+cache/
+outputs/
+__pycache__
