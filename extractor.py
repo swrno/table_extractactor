@@ -34,19 +34,22 @@ def extract_tables(content):
         print(f"Error extracting tables: {e}")
         return []
 
-def save_tables(tables, filename_prefix):
+def save_tables(tables, filename_prefix, output_dir=None):
     """
     Saves a list of DataFrames to an Excel file.
+    output_dir: directory to save into (default: OUTPUT_DIR constant).
     """
     if not tables:
         print("No tables to save.")
         return None
-        
-    if not os.path.exists(OUTPUT_DIR):
-        os.makedirs(OUTPUT_DIR)
-        
+
+    target_dir = output_dir if output_dir else OUTPUT_DIR
+
+    if not os.path.exists(target_dir):
+        os.makedirs(target_dir)
+
     output_filename = f"{filename_prefix}.xlsx"
-    output_path = os.path.join(OUTPUT_DIR, output_filename)
+    output_path = os.path.join(target_dir, output_filename)
     
     try:
         with pd.ExcelWriter(output_path, engine='openpyxl') as writer:

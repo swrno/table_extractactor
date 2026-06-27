@@ -13,6 +13,7 @@ def main():
     parser.add_argument("--force-refresh", action="store_true", help="Ignore cache and fetch fresh content.")
     parser.add_argument("--headless", action="store_true", default=True, help="Run browser in headless mode.")
     parser.add_argument("--no-headless", action="store_false", dest="headless", help="Run browser in visible mode.")
+    parser.add_argument("--output-dir", default=None, help="Directory to save output Excel files (overrides default 'outputs' folder).")
     
     args = parser.parse_args()
     
@@ -57,7 +58,7 @@ def main():
     if content:
         tables = extract_tables(content)
         if tables:
-            saved_path = save_tables(tables, output_filename_prefix)
+            saved_path = save_tables(tables, output_filename_prefix, output_dir=args.output_dir)
             if saved_path:
                 print(f"Done! Tables saved to: {saved_path}")
         else:

@@ -30,12 +30,12 @@ python3 main.py --url "https://example.com/page-with-tables"
 python3 main.py [OPTIONS]
 ```
 
-| Flag | Description |
-|---|---|
-| `--url URL` | URL to scrape tables from |
-| `--file PATH` | Local HTML file to extract tables from |
-| `--no-headless` | Run the browser in visible mode (useful for Cloudflare challenges) |
-| `--force-refresh` | Ignore cached content and fetch fresh HTML |
+| Flag                | Description                                                        |
+| ------------------- | ------------------------------------------------------------------ |
+| `--url URL`       | URL to scrape tables from                                          |
+| `--file PATH`     | Local HTML file to extract tables from                             |
+| `--no-headless`   | Run the browser in visible mode (useful for Cloudflare challenges) |
+| `--force-refresh` | Ignore cached content and fetch fresh HTML                         |
 
 ### Examples
 
